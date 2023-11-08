@@ -1,0 +1,31 @@
+module Sets where
+
+import Daml.Script
+
+import DA.Set as Set
+
+setTesting: Script()
+
+setTesting = script do 
+
+    let 
+        fruitSet: Set Text = Set.empty
+        fruitList = ["apple", "banana", "cherry", "mongo"]
+        fruitSet = Set.fromList fruitList
+
+    debug $ "fruitSet: " <> show fruitSet 
+    debug $ "fruitList: " <> show fruitList 
+    debug $ "fruitSet: " <> show fruitSet 
+    debug $ "size of fruitSet: " <> show (Set.size fruitSet) 
+    debug $ "mongo exists in fruitSet: " <> show (Set.member "mongo" fruitSet) 
+
+
+    let newFruitSet = Set.insert "orange" fruitSet
+    
+    debug $ "newFruitSet: " <> show newFruitSet 
+    debug $ "size of newFruitSet: " <> show (Set.size newFruitSet) 
+    debug $ "orange exists in newFruitSet: " <> show (Set.member "orange" newFruitSet) 
+
+
+
+

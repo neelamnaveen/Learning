@@ -1,0 +1,23 @@
+module Maps where
+
+import Daml.Script
+import DA.Map as Map 
+
+mapTest = script do 
+    let 
+        wordMap: Map Text Text = Map.empty
+        words = [("a", "apple"), ("b", "ball")]
+        wordMap = Map.fromList words
+    
+    debug wordMap
+    debug $ "size of wordMap: " <> show (Map.size wordMap) 
+    debug $ "a exists in wordMap: " <> show (Map.lookup "a" wordMap) 
+    debug $ "c exists in wordMap: " <> show (Map.lookup "c" wordMap) 
+
+    let 
+        newWordMap = Map.insert "c" "cherry" wordMap
+
+    
+    debug $ "size of newWordMap: " <> show (Map.size newWordMap) 
+    debug newWordMap
+     

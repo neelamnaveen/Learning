@@ -1,0 +1,31 @@
+module Time where
+import Daml.Script
+import DA.Date 
+import DA.Time
+
+dataTypeTest:Script() = script do
+    currentContainerTime <- getTime
+    
+    debug $ "First currentContainerTime:" <> show currentContainerTime
+
+    let 
+        today: Date = date 2023 Oct 15
+        newCurrentTime:Time = time today 10 30 0
+
+    setTime newCurrentTime
+
+    currentContainerTime <- getTime
+    
+    debug $ "currentContainerTime after changing:" <> show currentContainerTime
+    
+
+    let 
+        dateOfBirth:Date = date 1995 Jul 28
+
+        timeOfBirth:Time = time dateOfBirth 15 30 10
+
+        age: RelTime = subTime newCurrentTime timeOfBirth
+
+    debug $ "age of the user is: " <> show age
+    
+    return ()

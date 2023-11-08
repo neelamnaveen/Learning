@@ -1,0 +1,62 @@
+module ProbStatements where
+
+import Daml.Script -- script import 
+
+import DA.Tuple
+
+import DA.List 
+
+-- Lab1
+quadFunction: Decimal -> Decimal -> Decimal -> Decimal
+
+quadFunction x y z = 3.0*x*x + 2.0*y +z
+
+-- Lab2
+
+song = [("do", "a deer, a female deer"), ("re", "a drop of golden sun"), ("mi", "a name, I call myself"), ("fa", "a long long way to run")]
+
+termFreq: Text -> Text -> Text
+termFreq word wordList = word
+
+testQuad: Script()
+testQuad = script do
+    debug " ------------------------------------------ "
+    debug " **************** Lab1 ********************"
+    debug " ------------------------------------------ "
+    debug (quadFunction 1.0 2.0 3.0)
+    debug " Testing quadFunction using lamba function"
+    debug " ------------------------------------------ "
+    debug " **************** Lab2 *****************"
+    debug " ------------------------------------------ "
+    debug " ------------- Problem statement 1 ---------- "
+    let firstSet = head song
+    let secondSet = song !! 1
+    let thirdSet = song !! 2
+    let fourthSet = song !! 3
+
+    let firstCol = [fst firstSet, fst secondSet, fst thirdSet, fst fourthSet]
+    let secondCol = [snd firstSet, snd secondSet, snd thirdSet, snd fourthSet]
+
+    let firstColReverse = [
+         fst fourthSet,
+         fst thirdSet,
+         fst secondSet,
+         fst firstSet
+         ]
+    let secondColReverse = [
+         snd fourthSet,
+         snd thirdSet,
+         snd secondSet,
+         snd firstSet
+         ]
+
+    debug firstCol
+    debug secondCol
+    debug firstColReverse
+    debug secondColReverse
+    
+    debug " ------------- Problem statement 2 ---------- "
+    debug $ termFreq "long" "a long long way to run"
+
+
+

@@ -1,0 +1,14 @@
+module HelloWorld where
+
+import Daml.Script
+
+add: Int -> Int -> Int
+add a b = (a + b)
+
+testAdd : Script()
+
+testAdd = script do
+  debug $ add 10 2
+  
+
+

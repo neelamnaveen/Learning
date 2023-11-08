@@ -1,0 +1,16 @@
+module Datatypes where
+import Daml.Script
+
+dataTypeTest: Script()
+
+dataTypeTest = script do
+    let 
+        amount:Int = 100
+        amount1: Decimal = 10.3334
+        amount2: Numeric 5 = 12.89995
+        amount3: BigNumeric = 1.4 * 1e37 * 1e37
+    
+    debug $ amount
+    debug $ amount1
+    debug $ amount2
+    debug $ amount3 
