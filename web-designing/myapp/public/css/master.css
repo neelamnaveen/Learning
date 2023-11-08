@@ -1,0 +1,27 @@
+h1{
+  color: blue;
+  text-shadow: 2px;
+  font-size: 50px;
+}
+body{
+ font-family: 'Sofia';
+}
+.column {
+  float: left;
+  width: 33.33%;
+  border-width: 3px;
+  height: 600px;
+  padding:3px;
+  border:thin solid;
+  border-color: red green blue pink;
+}
+.column1{
+  float: left;
+  width: 33.33%;
+  }
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}

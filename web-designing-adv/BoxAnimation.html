@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Test for Advanced Voice Research Labs, Inc. Company</title>
+</head>
+
+<!-- CSS Code  -->
+<style media="screen">
+    body {
+        display: flex;
+        flex-direction: column;
+        margin: 10% 20%;
+    }
+    /* Box styling */
+
+    .box {
+        display: flex;
+        align-items: flex-end;
+        background-color: black;
+        width: 96%;
+        height: 200px;
+        border: 15px solid black;
+    }
+    /* Bars styling */
+
+    .bars {
+        height: 100%;
+        width: 100%;
+        transition: height 2s;
+
+    }
+
+    .bar1 {
+        background-color: #7442BE;
+    }
+
+    .bar2 {
+        background-color: #D138AB;
+    }
+
+    .bar3 {
+        background-color: #FF4D87;
+    }
+
+    .bar4 {
+        background-color: #FF8367;
+    }
+
+    .bar5 {
+        background-color: #FFCA56;
+    }
+
+
+    /* Buttons Styling */
+
+    .button {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 30px;
+    }
+
+    #start_button {
+        background-color: green;
+        color: white;
+        padding: 5px 30px;
+        cursor: pointer;
+        border: none;
+    }
+
+    #stop_button {
+        background-color: red;
+        color: white;
+        padding: 3px 30px;
+        cursor: pointer;
+        border: none;
+    }
+</style>
+
+<body>
+
+    <div class="box">
+        <div class="bars bar1"></div>
+        <div class="bars bar2"></div>
+        <div class="bars bar3"></div>
+        <div class="bars bar4"></div>
+        <div class="bars bar5"></div>
+    </div>
+
+    <div class="button">
+        <button id="start_button" >Start</button>
+        <button id="stop_button" >Stop</button>
+    </div>
+
+
+    <!-- JavaScript Code  -->
+    <script type="text/JavaScript">
+    var bar1=1;var bar2=1;var bar3=1;var bar4=1;var bar5=1;
+
+    interval = null;
+    var animActive=0;
+
+    start_button.onclick = function () {
+        if(animActive==0){
+
+            interval = setInterval(function () {
+              var bar1Random=Math.floor(Math.random() * 100);
+              var bar2Random=Math.floor(Math.random() * 100);
+              var bar3Random=Math.floor(Math.random() * 100);
+              var bar4Random=Math.floor(Math.random() * 100);
+              var bar5Random=Math.floor(Math.random() * 100);
+              document.getElementsByClassName('bar1')[0].style.height= bar1Random + "%";
+              document.getElementsByClassName('bar2')[0].style.height= bar2Random + "%";
+              document.getElementsByClassName('bar3')[0].style.height= bar3Random + "%";
+              document.getElementsByClassName('bar4')[0].style.height= bar4Random + "%";
+              document.getElementsByClassName('bar5')[0].style.height= bar5Random + "%";
+            }, 2000);
+
+
+
+        }
+
+    };
+
+    stop_button.onclick = function () {
+        clearInterval(interval);
+        animActive=0;
+    };
+
+
+
+
+
+</script>
+</body>
+
+</html>
